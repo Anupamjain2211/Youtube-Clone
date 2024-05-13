@@ -3,11 +3,13 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { MdNotificationsNone } from "react-icons/md";
 import { TbVideoPlus } from "react-icons/tb";
 import Avatar from "react-avatar";
+import { IoSearch } from "react-icons/io5";
+
 
 const Navbar = () => {
   return (
     <div>
-      <div className="px-5 flex justify-between items-center">
+      <div className="px-5 py-3 flex justify-between items-center">
         <div className="flex items-center">
           <GiHamburgerMenu size={"24px"} />
           <img
@@ -16,18 +18,18 @@ const Navbar = () => {
           />
         </div>
         <div className="flex w-[40%] items-center">
-          <div className="w-[100%] border-1 py-2 px-1 border-gray-400">
+          <div className="w-[100%] border py-2 px-4 border-gray-400 rounded-l-full">
             <input
               type="text"
               placeholder="Search"
-              className=" border w-full outline-none"
+              className="w-full outline-none "
             />
           </div>
-          <button>Search</button>
+          <button className="py-2 px-4 border border-gray-400 rounded-r-full"><IoSearch size={"24px"}/></button>
         </div>
-        <div className="flex items-center">
-          <MdNotificationsNone size={"24px"} />
-          <TbVideoPlus size={"24px"} />
+        <div className="flex w-[10%] justify-between items-center">
+          <MdNotificationsNone size={"24px"} className="cursor-pointer"/>
+          <TbVideoPlus size={"24px"}  className="cursor-pointer"/>
           <Avatar
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRN6_hFPC_LV0agbBp-YD7JxNlEVuS82vJklbha_OLfGuONGUru3eAyyb51g&s"
             size={34}
