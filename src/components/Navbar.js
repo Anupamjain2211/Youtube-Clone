@@ -8,8 +8,8 @@ import { IoSearch } from "react-icons/io5";
 
 const Navbar = () => {
   return (
-    <div>
-      <div className="px-5 py-3 flex justify-between items-center">
+    <div className="flex justify-center top-0 items-center w-[100%] fixed bg-white">
+      <div className=" py-3 flex w-[97%] justify-between items-center">
         <div className="flex items-center">
           <GiHamburgerMenu size={"24px"} />
           <img
