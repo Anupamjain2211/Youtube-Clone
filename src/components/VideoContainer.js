@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import API_KEY, { YOUTUBE_VIDEO_API } from "../constant/youtube";
+import { YOUTUBE_VIDEO_API } from "../constant/youtube";
 import VideoCart from "./VideoCart";
+import { Link } from "react-router-dom";
+
 const VideoContainer = () => {
   const [video, setVideo] = useState([]);
   const fetchingYoutubeVideo = async () => {
@@ -24,7 +26,11 @@ const VideoContainer = () => {
   return (
     <div className="grid grid-cols-3 gap-3">
       {video.map((item) => {
-        return <VideoCart key={item.id} item = {item}/>;
+        return (
+          <Link to={`/watch?v=${item.id}`} key={item.id}>
+            <VideoCart  item={item} />
+          </Link>
+        );
       })}
     </div>
   );
