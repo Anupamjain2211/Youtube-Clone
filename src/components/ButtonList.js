@@ -1,15 +1,52 @@
-import React from 'react'
+import React, { act, useState } from "react";
+import { useDispatch } from "react-redux";
+import { setCategory } from "../utils/appSlice";
 
 const Buttonlist = () => {
-   const buttonList = ["All", "Javascript", "Java", "Live", "Music", "Songs", "Vlogs", "Trending", "Programming"]
+  const buttonList = [
+    "All",
+    "Javascript",
+    "Java",
+    "Live",
+    "Music",
+    "Songs",
+    "Vlogs",
+    "Trending",
+    "Programming",
+    "News",
+    "Technology",
+    "Cricket",
+    "Thriller",
+    "Comedy",
+    "NewToYou",
+    "Computer",
+    "Teaching",
+    "Hot"
+
+  ];
+
+  const [active, setActive] = useState("All")
+  const dispatch = useDispatch();
+  
+  const videoByTag = (tag) =>{
+    if(active !== tag ){
+      dispatch(setCategory(tag));
+      setActive(tag);
+    } 
+  }
   return (
-    <div className='py-4'>
-        {buttonList.map((item,index)=>{
-            return <button key={index} className='bg-gray-100 px-4 mx-2 font-medium py-1 rounded-lg'>{item}</button>
+    <div className='flex w-full overflow-x-scroll no-scrollbar my-1'>
+    {
+      buttonList.map((buttonName, index) => {
+        return (
+          <div key={index}>
+            <button onClick={() => { videoByTag(buttonName) }} className={`${active === buttonName ? "bg-slate-900 text-white" : "bg-gray-200"} w-fit font-medium mx-1 cursor-pointer px-3 py-2 rounded-lg`}><span className="whitespace-nowrap">{buttonName}</span></button>
+          </div>
+        )
+      })
+    }
 
-        })}
-    </div>
-  )
+  </div>
+)
 }
-
-export default Buttonlist
+export default Buttonlist;
